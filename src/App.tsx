@@ -1,12 +1,17 @@
 import './App.css'
+import Footer from './components/Footer'
+import Header from './components/Header'
+import Hero from './components/Hero'
 
 function App() {
   return (
-    <main>
-      <h1>Manu Zafra</h1>
-      <p>Game Designer · Software Engineer</p>
-      <p>New portfolio coming soon.</p>
-    </main>
+    <>
+      <Header name="Manu Zafra" />
+      <main>
+        <Hero />
+      </main>
+      <Footer />
+    </>
   )
 }
 
