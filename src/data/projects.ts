@@ -1,6 +1,13 @@
-// TODO(human): define and export the `Project` interface (and the category type it uses).
-// Fields needed by the data below: name, role, timeline, summary, url, categories.
-// `categories` must only accept: 'videogame' | 'gamejam' | 'post' | 'personal'.
+export type Category = 'videogame' | 'gamejam' | 'post' | 'personal'
+
+export interface Project {
+  name: string
+  role: string
+  timeline: string
+  summary: string
+  url: string
+  categories: Category[]
+}
 
 export const projects: Project[] = [
   {
@@ -9,16 +16,16 @@ export const projects: Project[] = [
     timeline: '2023 - Present',
     summary:
       'Local co-op adventure game where you play as two mages trying to regain their power in a humorous fantasy setting. Made at Curious Imp by a team of 17.',
-    url: '/posts/aw/',
+    url: '#',
     categories: ['videogame'],
   },
   {
     name: 'Pathogenesis',
     role: 'Game Designer, Artist, Programmer',
-    timeline: '2023 - Present',
+    timeline: '2023 - 2025',
     summary:
       'A 2D platform puzzle game where you control a vulnerable virus striving to survive in a microscopic world.',
-    url: '/posts/pathogenesis/',
+    url: '#',
     categories: ['videogame'],
   },
   {
@@ -27,7 +34,7 @@ export const projects: Project[] = [
     timeline: '2024',
     summary:
       'A personal project exploring interactive narrative. Through the game I try to convey the complex emotions of grief in an immersive, emotional journey.',
-    url: '/posts/ourhome/',
+    url: '#',
     categories: ['videogame', 'personal'],
   },
   {
@@ -35,7 +42,7 @@ export const projects: Project[] = [
     role: 'Dungeon Master',
     timeline: 'Ongoing',
     summary: "Notes and encounters designed for the TTRPG campaigns I've run as a DM.",
-    url: '/posts/dmvault/',
+    url: '#',
     categories: ['personal'],
   },
   {
@@ -53,7 +60,7 @@ export const projects: Project[] = [
     timeline: '2024',
     summary:
       'Level blocking for a first-person horror game, exploring how to build tension and suspense through level design with limited resources.',
-    url: '/posts/fpsstudy/',
+    url: '#',
     categories: ['personal', 'post'],
   },
   {
@@ -71,7 +78,7 @@ export const projects: Project[] = [
     timeline: '2024',
     summary:
       "An analysis of some of the most significant puzzles I've designed and implemented, walking through the process and the design choices behind them.",
-    url: '/posts/puzzledesign/',
+    url: '#',
     categories: ['personal', 'post'],
   },
   {
@@ -84,3 +91,11 @@ export const projects: Project[] = [
     categories: ['gamejam', 'videogame'],
   },
 ]
+
+export type CategoryFilter = Category | 'all'
+
+export function filterProjects(list: Project[], category: CategoryFilter): Project[] {
+  if (category === 'all') return list;
+  return list.filter((project) => project.categories.includes(category))
+
+}
