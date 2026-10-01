@@ -14,7 +14,7 @@ function ExperienceItem({ company }: ExperienceItemProps) {
         <p key={paragraph}>{paragraph}</p>
       ))}
       {company.positions.map((position) => (
-        <div key={position.title}>
+        <div key={position.title} className="experience-position">
           <h4>{position.title}</h4>
           <p>{formatPeriod(position)}</p>
           {position.responsibilities.length > 0 && (

@@ -6,7 +6,7 @@ interface ProjectCardProps {
 
 function ProjectCard({ project }: ProjectCardProps) {
   return (
-    <article>
+    <article className="project-card">
       <h3>{project.name}</h3>
       <p>
         {project.role} · {project.timeline}

@@ -9,9 +9,11 @@ function Projects() {
   return (
     <section id="projects">
       <h2>Projects</h2>
-      {filterProjects(projects, activeCategory).map((project) => (
-        <ProjectCard key={project.name} project={project}/>
-      ))}
+      <div className="project-list">
+        {filterProjects(projects, activeCategory).map((project) => (
+          <ProjectCard key={project.name} project={project}/>
+        ))}
+      </div>
     </section>
   )
 }

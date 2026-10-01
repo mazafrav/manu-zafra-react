@@ -4,10 +4,10 @@ interface HeaderProps {
 
 function Header({ name }: HeaderProps) {
   return (
-    <header>
+    <header className="site-header">
       <a href="#top">{name}</a>
       <nav>
-        <a href="#projects">Projects</a> 
+        <a href="#projects">Projects</a>
         <a href="#experience">Experience</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>

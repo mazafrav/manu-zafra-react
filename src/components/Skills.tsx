@@ -18,21 +18,23 @@ function Skills() {
   return (
     <section id="skills">
       <h2>Skills</h2>
-      {categories.map((category) => {
-        const group = skills.filter((skill) => skill.category === category)
-        // An empty group would render a heading with nothing under it.
-        if (group.length === 0) return null
-        return (
-          <div key={category}>
-            <h3>{groupTitles[category]}</h3>
-            <ul>
-              {group.map((skill) => (
-                <SkillItem key={skill.name} skill={skill} />
-              ))}
-            </ul>
-          </div>
-        )
-      })}
+      <div className="skills-groups">
+        {categories.map((category) => {
+          const group = skills.filter((skill) => skill.category === category)
+          // An empty group would render a heading with nothing under it.
+          if (group.length === 0) return null
+          return (
+            <div key={category} className="skill-group">
+              <h3>{groupTitles[category]}</h3>
+              <ul>
+                {group.map((skill) => (
+                  <SkillItem key={skill.name} skill={skill} />
+                ))}
+              </ul>
+            </div>
+          )
+        })}
+      </div>
     </section>
   )
 }
