@@ -1,4 +1,4 @@
-/* Estilos globales mínimos. El diseño real llega en la fase 4. */
+/* Estilos globales */
 
 *,
 *::before,
@@ -7,15 +7,77 @@
 }
 
 :root {
-  color-scheme: light dark;
-  font-family: system-ui, 'Segoe UI', Roboto, sans-serif;
-  line-height: 1.5;
+  --plum-dark: #331940;
+  --plum: #5e366a;
+  --mint-clear: #cbf7eb;
+  --mint: #99f5e2;
+
+  /* Tipografía */
+  --font-body: 'Space Grotesk', system-ui, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'Cascadia Code', Consolas, monospace;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.75rem;
+  --text-2xl: 2.5rem;
+
+  /* Espaciado (escala de 4 px) */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+
+  /* Forma */
+  --radius: 0.5rem;
+  --content-width: 64rem;
 }
 
+/* Tokens semánticos, tema claro */
+:root {
+  color-scheme: light;
+
+  --bg: var(--plum);
+  --surface: #f4f1f6;
+  --text: var(--mint-clear);
+  --text-muted: var(--mint);
+  --accent: var(--mint);
+  --border: var(--plum-dark);
+}
+
+/* Tokens semánticos, tema oscuro */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+
+    --bg: var(--plum-dark);
+    --surface: #f4f1f6;
+    --text: var(--mint-clear);
+    --text-muted: var(--mint);
+    --accent: var(--mint);
+    --border: var(--plum);
+  }
+}
+
+/* Base */
 body {
   margin: 0;
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--bg);
+}
+
+a {
+  color: var(--accent);
 }
 
 main {
-  padding: 2rem;
+  max-width: var(--content-width);
+  margin-inline: auto;
+  padding: var(--space-8) var(--space-4);
 }
